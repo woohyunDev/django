@@ -1,0 +1,12 @@
+<h1>{{t.name}} information</h1>
+
+<h4>나이 : {{ t.age }}</h4>
+
+<textarea disabled>
+    {{t.subject}}
+</textarea>
+
+<br><br>
+
+<a href="{% url 'index' %}"><button>back</button></a>
+<a href="{% url 'delete' t.id %}"><button>delete</button></a>

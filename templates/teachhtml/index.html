@@ -1,0 +1,29 @@
+<h1>강사소개 Page</h1>
+
+<table border="1">
+    <tr>
+        <th>id</th>
+        <th>name</th>
+        <th>age</th>
+        <th>subject</th>
+        
+        {% if tset %}
+            {% for i in tset %}
+            <tr>
+                <td>{{forloop.counter}}</td>
+                <td><a href="{% url 'show' i.id %}">{{i.name}}</a>
+                <td>{{i.age}}</td>
+                <td>{{i.subject}}</td>
+            </tr>               
+            {% endfor %}
+
+        {% else %}
+            <tr>
+                <th colspan="4">no data</th>
+            </tr>
+
+        {% endif %}
+
+
+    </tr>
+</table>

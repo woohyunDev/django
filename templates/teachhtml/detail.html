@@ -1,0 +1,11 @@
+
+
+{% for i in tset %}
+<table>
+    <tr>
+        <td><a href="{% url 'detail' i.name  %}"><button>{{i.name}}</button></a></td>
+          
+    </tr>
+
+{% endfor %}
+
