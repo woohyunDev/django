@@ -1,0 +1,30 @@
+<h1>CREATE PAGE</h1>
+
+<form method="POST" action="" name="registform">
+    {% csrf_token %}
+    name <input type="text" name='name'> <p></p>
+    price <input type="text" name = 'price'> <p></p>
+    count <input type="text" name = 'count'> <p></p>
+    comment <textarea name="comment" id="" cols="30" rows="10"></textarea>
+    <button type="button" onclick="check()">생성</button>
+    <a href="https://www.naver.com"><button type="button">naver</button></a>
+</form>
+
+<script>
+    function check(){
+        f = document.registform;
+        if(!f.name.value){
+            alert("상품명을 입력해주세요");
+        }
+        else if(!f.price.value){
+            alert("가격을 입력해주세요");
+        }
+        else if(!f.count.value){
+            alert("수량을 입력해주세요");
+        }
+        else {
+            f.submit();
+        }
+    }
+
+</script>

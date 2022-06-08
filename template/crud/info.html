@@ -1,0 +1,44 @@
+<h1>INFO PAGE</h1>
+
+<form method="POST" action="">
+    {% csrf_token %}
+
+    name <input type="text" name='name' value="{{info.name}}"> <p></p>
+    price <input type="text" name = 'price' value="{{info.price}}" > <p></p>
+    count <input type="text" name = 'count' value="{{info.count}}"> <p></p>
+    comment <br>
+    <textarea name="comment" cols="30" rows="10">"{{info.comment}}"</textarea>
+    <br>
+    <a href="{% url 'info' info.id %}"><button>modify</button></a> 
+
+</form>
+<a href="{% url 'index'  %}"><button>back</button></a> 
+<a href="{% url 'delete' info.id %}"><button>delete</button></a> 
+
+<hr>
+<br>
+<h3>reply</h3>
+
+<form method="POST" action="{% url 'creply' info.id %}" >
+    {% csrf_token %}
+    
+    <input type="text" size="5" name="user"> 
+    <input type="text" size="" name="con">
+    <button>댓글달기</button> 
+</form>
+
+
+
+<br>
+<h5>댓글</h5>
+{% for i in rev  %}
+<b>
+    <input type="text" size="5" disabled value="{{ i.name }}">
+</b>    
+    <input type="text" disabled value="{{ i.con }}"> 
+    <a href="{% url 'dreply' info.id i.id %}">x</a>
+<br>  
+{% endfor %}
+
+  
+ 

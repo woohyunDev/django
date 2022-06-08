@@ -1,0 +1,24 @@
+<h1>woosik shop</h1>
+
+<table border="1">
+    <tr>
+        <th>no</th>
+        <th>name</th>
+        <th>count</th>    
+    </tr>
+    
+    {% for i in db %}
+        <tr>
+            <td>{{i.id}}</td>
+            <td><a href="{% url 'info' i.id %}">{{i.name}}</a></td>
+            <td>{{i.count}}</td>
+        </tr>            
+    {% endfor %}    
+    
+    
+    
+</table>
+
+
+
+<a href="{% url 'create' %}"><button>create</button></a>
